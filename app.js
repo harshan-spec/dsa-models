@@ -15,6 +15,7 @@
     exercise.problems.map((problem, order) => ({ exercise, problem, order }))
   );
   const programById = new Map(allPrograms.map((entry) => [entry.problem.id, entry]));
+  const sourceBaseUrl = "https://github.com/harshan-spec/dsa-models/blob/main/";
   let activeQuery = "";
   let visiblePrograms = allPrograms;
   let copyResetTimer;
@@ -164,7 +165,7 @@
             </div>
             <p class="exercise-description">${escapeHTML(exercise.description)}</p>
           </div>
-          <a class="exercise-source" href="${encodeURI(exercise.source)}" target="_blank" rel="noreferrer">open source ↗</a>
+          <a class="exercise-source" href="${sourceBaseUrl}${encodeURIComponent(exercise.source)}" target="_blank" rel="noreferrer">open source ↗</a>
         </div>
         <div class="problem-list">${entries.map(renderCard).join("")}</div>
       </section>
