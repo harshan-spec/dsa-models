@@ -257,7 +257,7 @@
   });
 
   copyVisible.addEventListener("click", async () => {
-    const code = visiblePrograms.map((entry) => `/* ${entry.exercise.title} — ${entry.problem.title} */\n${entry.problem.code}`).join("\n\n");
+    const code = visiblePrograms.map((entry) => entry.problem.code).join("\n\n");
     if (!code) return;
     try {
       await copyText(code);
